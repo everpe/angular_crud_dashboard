@@ -1,0 +1,67 @@
+<br><br>
+<div class="container">
+    
+<h2>Te Invitamos A Que Realices El Siguiente Cuestionario</h2>
+
+<div class="alert alert-success col-md-5" *ngIf="status=='true'">
+    El Cuestionario Se HA Guardado Con Éxito
+</div>
+<div class="alert alert-danger col-md-5" *ngIf="status=='error'">
+    No se ha podido registrar
+</div>
+
+
+<div class="card card-body">   
+    <form #cuestionarioForm="ngForm" (ngSubmit) ="addCuestionario(cuestionarioForm)">    
+        <div class="form">
+            <div class="form-group">
+                <input type="text" name="name" 
+                required #name="ngModel" [(ngModel)]="cuestionario.name" placeholder="nombre"
+                class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <input type="text" name="lastname" 
+                required #lastname="ngModel" [(ngModel)]="cuestionario.lastname" placeholder="apellido"
+                class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="number" name="age" min="1" max="99" step="1"  required="required"
+                #age="ngModel" [(ngModel)]="cuestionario.age" class="form-control" placeholder="Ingrese Su edad">
+            </div>
+            <div class="form-group">
+                <input type="text" name="ciudad" 
+                required #name="ngModel" [(ngModel)]="cuestionario.ciudad" placeholder="ciudad"
+                class="form-control">
+            </div>
+            <div class="form-group">
+                <textarea type="textarea" name="question1" 
+                    required #name="ngModel" [(ngModel)]="cuestionario.question1"
+                    placeholder="¿Qué Entendió Por Territorio, Territoriedad y Territorialización?"
+                    class="form-control">
+                </textarea>
+            </div>
+            <div class="form-group">
+                <textarea type="text" name="question2" 
+                required #name="ngModel" [(ngModel)]="cuestionario.question2" 
+                placeholder="¿Qué Es La Participación Ciudadana?"
+                class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <textarea type="text" name="question3" 
+                required #name="ngModel" [(ngModel)]="cuestionario.question3" 
+                placeholder="¿Qué Es Ciudadanía y desde cuándo Se es ciudadano?"
+                class="form-control"></textarea>
+            </div>
+         
+            
+            <button type="submit" class="btn btn-success btn-block" [disabled]="cuestionarioForm.invalid">
+                Enviar Formulario
+            </button>
+        </div>
+    
+    </form>
+    
+    
+    </div>
+</div>

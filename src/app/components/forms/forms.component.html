@@ -1,0 +1,37 @@
+<div class="container center-block">
+    
+    <ul class="list-gropu">
+        <h3 class="ml-4">Lista De Todos Los Cuestionarios Realizados!</h3>
+
+        <li *ngFor="let quests of questiorys" class="list-group-item">
+             <br>
+            <div class="accordion" id="accordionExample">
+                <div class="card alert-dark"> 
+
+                  <div class="card-header" id="headingOne">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse"
+                        data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                          {{quests.name}}{{' '}}{{quests.lastname}}
+                        </button>
+                      </h2>
+                  </div>
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body">
+                      <b> {{'Edad: '}}</b>   {{quests.age}} <br>
+                      <b>{{'Ciudad: '}}</b>    {{quests.ciudad}} <br>
+                      <b> {{'Territorio-Territoriedad: '}}</b>   {{quests.question1}} <br>
+                      <b>{{'Participación: '}}</b>    {{quests.question2}} <br>
+                      <b>{{'Ciudadania : '}}</b>    {{quests.question3}} <br>
+                      </div>
+                  </div>
+                </div>
+            </div>
+
+
+        </li>
+    </ul>        
+
+
+</div>
+
