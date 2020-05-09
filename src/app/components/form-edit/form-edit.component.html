@@ -1,0 +1,19 @@
+<div class="container" >
+    <mat-form-field>
+        <input matInput placeholder="Nombre" name="name" [(ngModel)]="this.customerService.customerEdit.name">
+    </mat-form-field>    
+    <mat-form-field>
+        <input matInput type="number" placeholder="Edad" name="age" [(ngModel)]="this.customerService.customerEdit.age">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Ciudad" name="city" [(ngModel)]="this.customerService.customerEdit.city">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Order" name="order" [(ngModel)]="this.customerService.customerEdit.order">
+    </mat-form-field>
+        
+     <button id="guardar" mat-raised-button class="btn btn-success" (click)="onSaveForm()">
+        Guardar <mat-icon>save</mat-icon>
+    </button>
+
+</div>

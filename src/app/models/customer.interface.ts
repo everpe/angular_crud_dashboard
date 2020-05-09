@@ -1,6 +1,7 @@
 export interface CustomerI {
-    name: string;
-    age: number;
-    city: string;
-    order: string;
+    id?:string;
+    name?: string;
+    age?: number;
+    city?: string;
+    order?: string;
   }

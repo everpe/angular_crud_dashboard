@@ -1,6 +1,6 @@
 table{
     width: 96%;
-    margin: 2%;
+    margin-left: 2%;
 }
 .mat-form-field{
     font-size: 16px;
@@ -13,9 +13,21 @@ table{
     color: rgb(36, 2, 49);
 }
 #edit{
-    color:rgb(255, 255, 255);
+    background-color:rgb(6, 147, 202);
+    color: white;
 }
 #edit:hover{
-    color:rgb(74, 85, 116);
-    transform:translateY(2px)
+    color:rgb(68, 64, 98);
+    transform:translateY(2px);
+}
+#delete:hover{
+    color:rgb(68, 64, 98);
+    transform:translateY(2px);
+}
+#create{
+    color: rgb(66, 74, 77);
+}
+#create:hover{
+    color:rgb(78, 117, 81);
+    transform:translateY(2px);
 }

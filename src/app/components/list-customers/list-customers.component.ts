@@ -4,23 +4,27 @@ import {Sort, MatSort} from '@angular/material/sort';
 import {CustomerI} from '../../models/customer.interface'
 
 import {CustomerService} from '../../services/customer.service';
-
+import {MatDialog,MatDialogConfig} from '@angular/material/dialog';
+import {FormEditComponent} from '../form-edit/form-edit.component';
 @Component({
   selector: 'list-customers',
   templateUrl: './list-customers.component.html',
   styleUrls: ['./list-customers.component.css']
 })
+
 export class ListCustomersComponent implements OnInit {
-  public customers:CustomerI;
+  public customers=[];
   //Columnas de la Tabla
-  displayedColumns: string[] = ['name', 'age', 'city', 'order','actions'];
+  displayedColumns: string[] = ['name', 'age', 'city', 'order','actions','new'];
   //Información  de La Tabla
   dataSource = new MatTableDataSource();
-
   //Decorador que indica que la vista del componente tendrá Sort.
 @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private customerService:CustomerService) { 
+  constructor(
+    private customerService:CustomerService,
+    private dialog: MatDialog
+    ){ 
   }
 
 /**
@@ -34,7 +38,12 @@ export class ListCustomersComponent implements OnInit {
 
   ngOnInit(): void {
     //LLenando La tabla mediante el Servicio.
-    this.customerService.getallCostumers().subscribe(res => this.dataSource.data=res);
+    this.customerService.getAllCustomers().subscribe(res => this.dataSource.data=res);
+
+    this.customerService.getAllCustomers().subscribe(customers=>{
+      this.customers=customers;  
+      console.log(customers);
+    });
   }
 
  
@@ -48,11 +57,35 @@ export class ListCustomersComponent implements OnInit {
   }
 
   onEdit(element){
-    console.log("editar",element);
+    this.openModal();
+    if(element){
+      this.customerService.customerEdit=element;
+      console.log("si",element);
+    }
   }
-  onDelete(id:string){
-    console.log("delete:",id);
-    this.customerService.deleteCustomer(id);
+  onCreate(){
+    this.resetEditForm();
+    this.openModal();
+  }
+  onDelete(event,customer:CustomerI){
+    console.log("deleting :",customer);
+    this.customerService.deleteCustomer(customer);
   }  
 
+  openModal():void{
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.data={
+      title:'Modal',    
+    };
+    dialogConfig.autoFocus=true;
+    this.dialog.open(FormEditComponent,dialogConfig);
+  }
+
+  resetEditForm():void{
+    this.customerService.customerEdit.name='';
+    this.customerService.customerEdit.id=null;
+    this.customerService.customerEdit.city='';
+    this.customerService.customerEdit.order='';
+    this.customerService.customerEdit.age=0;
+  }
 }

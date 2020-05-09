@@ -19,9 +19,16 @@ import { FormsComponent } from './components/forms/forms.component';
 import { MatModule } from './mat/mat.module';
 import { ListCustomersComponent } from './components/list-customers/list-customers.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import {CustomerService} from './services/customer.service';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { FormEditComponent } from './components/form-edit/form-edit.component';
+// Importaciones Dashboard
+import { MainNavComponent } from './main-nav/main-nav.component';
+
+// import { MatToolbarModule } from '@angular/material/toolbar';
+// import { MatButtonModule } from '@angular/material/button';
+// import { MatSidenavModule } from '@angular/material/sidenav';
+// import { MatIconModule } from '@angular/material/icon';
+// import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -31,7 +38,8 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     FormComponent,
     FormsComponent,
     ListCustomersComponent,
-    ToolbarComponent
+    FormEditComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -40,12 +48,14 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     AngularFirestoreModule,
     FormsModule,
     MatModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
     appRoutingProviders,
     CustomerService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  ///Controlar donde se muestra ese componente.
+  entryComponents:[FormEditComponent]
 })
 export class AppModule { }

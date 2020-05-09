@@ -37,6 +37,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 
+import { LayoutModule } from '@angular/cdk/layout';
 @NgModule({
   imports: [
     ClipboardModule,
@@ -77,6 +78,7 @@ import {MatTreeModule} from '@angular/material/tree';
     MatTreeModule,
     PortalModule,
     CommonModule,
+    LayoutModule,
   ],
   exports: [
     ClipboardModule,
@@ -117,6 +119,7 @@ import {MatTreeModule} from '@angular/material/tree';
     MatTreeModule,
     PortalModule,
     CommonModule,
+    LayoutModule,
   ]
 })
 export class MatModule

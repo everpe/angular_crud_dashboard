@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    /* border: solid 1px; */
+}
+.container >* {
+    width: 90%;
+    margin-left: 5%;
+}
+
+
+
+/* Button guardar */
+#guardar{
+    border: solid 1px rgb(12, 105, 9);
+}
